@@ -13,7 +13,7 @@ namespace AppStarWars
 		{
 			InitializeComponent();
 
-			MainPage = new AppStarWars.MainPage();
+			MainPage = new AppStarWars.View.MainPage();
 		}
 
 		protected override void OnStart ()

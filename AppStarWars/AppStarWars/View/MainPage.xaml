@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppStarWars.View.MainPage">
+    <ContentPage.Content>
+        <StackLayout Padding="5,5,5,5">
+            <ContentView Padding="0,25,0,0">
+                <Label Text="Star Wars - Xamarin Cenfotec"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                   TextColor="Black" Font="20"  />
+            </ContentView>
+            <StackLayout>
+                <Label />
+                <BoxView HeightRequest="1" BackgroundColor="Black"  HorizontalOptions="FillAndExpand" />
+                <Label />
+            </StackLayout>
+            <ListView x:Name="lst">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" >
+
+                                <Label Text="{Binding Name}" TextColor="Black" Font="22">
+                                </Label>
+                                <Label Text="{Binding Side}" Font="18" TextColor="Gray">
+                                </Label>
+                                <Image Source="{Binding Imgsource}" HeightRequest="70" WidthRequest="80" Margin="5,5,5,5" HorizontalOptions="EndAndExpand"></Image>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Vertical" >
+                <Label />
+                <BoxView HeightRequest="1" BackgroundColor="Black"  HorizontalOptions="FillAndExpand" />
+                <Label />
+                <Label Text="Filter List: " TextColor="Black" Font="20"></Label>
+            </StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Clicked="Button_Clicked_Light" Text="Light Side" Grid.Row="0" Grid.Column="0"></Button>
+                <Button Clicked="Button_Clicked_Dark" Text="Dark Side" Grid.Row="0" Grid.Column="1" ></Button>
+                <Button Clicked="Button_Clicked_Reset" Text="Clear" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></Button>
+            </Grid>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
