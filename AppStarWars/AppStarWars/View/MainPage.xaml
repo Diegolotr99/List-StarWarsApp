@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+              x:Name="MainPage"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppStarWars.View.MainPage">
     <ContentPage.Content>
@@ -15,16 +16,17 @@
                 <BoxView HeightRequest="1" BackgroundColor="Black"  HorizontalOptions="FillAndExpand" />
                 <Label />
             </StackLayout>
-            <ListView x:Name="lst">
+            <ListView  x:Name="LstCharacters" ItemsSource="{Binding LstCharacters}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" >
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.SeeCharacterCommand, Source={x:Reference MainPage}}" CommandParameter="{Binding Name}"/>
+                                </StackLayout.GestureRecognizers>
 
-                                <Label Text="{Binding Name}" TextColor="Black" Font="22">
-                                </Label>
-                                <Label Text="{Binding Side}" Font="18" TextColor="Gray">
-                                </Label>
+                                <Label Text="{Binding Name}" TextColor="Black" Font="22" />
+
                                 <Image Source="{Binding Imgsource}" HeightRequest="70" WidthRequest="80" Margin="5,5,5,5" HorizontalOptions="EndAndExpand"></Image>
                             </StackLayout>
                         </ViewCell>
@@ -41,14 +43,18 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Clicked="Button_Clicked_Light" Text="Light Side" Grid.Row="0" Grid.Column="0"></Button>
-                <Button Clicked="Button_Clicked_Dark" Text="Dark Side" Grid.Row="0" Grid.Column="1" ></Button>
-                <Button Clicked="Button_Clicked_Reset" Text="Clear" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></Button>
+                <Label Text="By Name:" Grid.Row="0" Grid.Column="0" />
+                <Entry Text="{Binding SearchText}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                <Button Command="{Binding FilterByLightSideCommand}" Text="Light Side" Grid.Row="2" Grid.Column="0"></Button>
+                <Button Command="{Binding FilterByDarkSideCommand}" Text="Dark Side" Grid.Row="2" Grid.Column="1" ></Button>
+                <Button Command="{Binding ClearCommand}" Text="Clear" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"></Button>
             </Grid>
            
         </StackLayout>

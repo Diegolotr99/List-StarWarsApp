@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using AppStarWars.View;
 using Xamarin.Forms;
 
 namespace AppStarWars
@@ -13,7 +13,7 @@ namespace AppStarWars
 		{
 			InitializeComponent();
 
-			MainPage = new AppStarWars.View.MainPage();
+			MainPage = new MainPage();
 		}
 
 		protected override void OnStart ()

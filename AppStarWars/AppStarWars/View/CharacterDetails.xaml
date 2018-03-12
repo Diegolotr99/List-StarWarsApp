@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppStarWars.View.CharacterDetails">
+    <StackLayout HorizontalOptions="Fill">
+        <!--Character-->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Padding="30">
+            <StackLayout>
+                <Image Source="{Binding ActualCharacter.Imgsource}" HeightRequest="100" WidthRequest="100"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!--Character Info Detail-->
+            <StackLayout HorizontalOptions="Fill" VerticalOptions="Center">
+                <!--Name-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Name:"/>
+                    <Label Text="{Binding ActualCharacter.Name}"/>
+                </StackLayout>
+                <!--Side-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Side:"/>
+                    <Label Text="{Binding ActualCharacter.Side}"/>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+        <Button Text="Editar" VerticalOptions="End" HeightRequest="50"/>
+    </StackLayout>
+</ContentPage>

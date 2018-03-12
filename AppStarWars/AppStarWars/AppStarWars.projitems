@@ -16,16 +16,24 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\Character.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CharacterViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\CharacterDetails.xaml.cs">
+      <DependentUpon>CharacterDetails.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\MainPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\CharacterDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
